@@ -1,0 +1,89 @@
+*,*::after{
+  box-sizing: border-box;
+}
+html,body{
+  margin: 0;
+  padding: 0;
+}
+body {
+  min-height: 100vh;
+  font-family: "Karla", sans-serif;
+  display: grid;
+  place-content: center;
+  color:#293264;
+  background-color: #F5F7FB;
+  padding: 1em;
+}
+
+fieldset {
+  border: 0;
+  margin-bottom: 1em;
+  
+}
+legend {
+  font-weight: 700;
+  font-size: 1.25rem;
+  margin-bottom: 1em;
+}
+h1 {
+  font-weight: 700;
+}
+
+label {
+  background-color: white;
+  padding: 0.5em 0.5em 0.5em 0.5em;
+  border-radius: 5px;
+  border: 1px solid black;
+  text-align: center;
+  cursor: pointer;
+}
+input[type="radio"]{
+  display: none;
+}
+input[type="radio"]:checked + .mainLabelClass{
+  background-color: #D6DBF5;
+}
+.answers-container{
+  display: flex;
+  gap: 0.25em;
+  flex-wrap: wrap;
+}
+.submission {
+  display: flex;
+  align-items: center;
+  gap: 0.5em;
+  margin-left: 1em;
+}
+.submission-btn {
+  color: white;
+  background-color: #4D5B9E;
+  border: 0;
+  border-radius: 10px;
+  padding: 0.75em 1.25em;
+}
+@media (min-width:500px){
+  .submission-btn{
+    padding: 1em 2.25em;
+  }
+}
+.incorrectAnswer{
+ background-color: #F8BCBC;
+ opacity: 0.75;
+}
+.correctAnswer{
+  background-color: #94D7A2;
+  color: #293264;
+}
+.start{
+  color: white;
+  background-color: #4D5B9E;
+  border: 0;
+  border-radius: 10px;
+  margin-top: 1em;
+  padding: 1em 2em;
+  cursor: pointer;
+}
+.initial-page{
+  display: grid;
+  place-content: center;
+}
