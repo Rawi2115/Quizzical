@@ -1,8 +1,9 @@
-# React + Vite
+# Quizzical Project
+This project is done as part of the scrimba basic react course, the site is simple it provides 5 question quizes with multiple answers which you can check on [Quizzical](https://rawi2115.github.io/Quizzical/)
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
-
-Currently, two official plugins are available:
-
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+### Tech Used
+* Reactjs
+* Vite
+* OpenTDB Api
+* YML for deployment
+* Html-entities Package
