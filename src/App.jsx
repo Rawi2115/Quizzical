@@ -15,11 +15,22 @@ function App() {
   function startQuiz(){
     setQuizStart(true)
   }
-  async function getQuestions(){
-    const req = await fetch("https://opentdb.com/api.php?amount=5&difficulty=easy&type=multiple")
-    const data = await req.json()
-    return data.results
-  }
+  async function getQuestions() {
+    let response;
+    do {
+        response = await fetch("https://opentdb.com/api.php?amount=5&difficulty=easy&type=multiple");
+        if (response.status === 200) {
+            const data = await response.json();
+            return data.results;
+        } else if (response.status === 429) {
+            console.log("Rate limit exceeded. Waiting and retrying...");
+            // Wait for some time before retrying
+            await new Promise(resolve => setTimeout(resolve, 1000)); // Adjust wait time as needed
+        } else {
+            throw new Error(`Unexpected status code: ${response.status}`);
+        }
+    } while (response.status === 429 || response.status !== 200);
+}
   async function dataFetch(){
     if(QuizStart){
     const tempArr = await getQuestions()
@@ -97,7 +108,7 @@ function App() {
           <div className="submission">
 
           {submitted ? <h3>You answered {count}/5 questions correctly</h3> : null}
-          <button className='submission-btn'>{submitted ? "Play Again" : "Check Answers"}</button>
+          {QuestionsArr.length > 0 &&<button className='submission-btn'>{submitted ? "Play Again" : "Check Answers"}</button>}
 
           </div>
         </form>
